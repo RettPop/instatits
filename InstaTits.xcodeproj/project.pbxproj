@@ -27,6 +27,8 @@
 		7B43445E18677F6C0080F65E /* UIImage+UIImageFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B43445D18677F6C0080F65E /* UIImage+UIImageFunctions.m */; };
 		7B434460186797670080F65E /* beard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B43445F186797670080F65E /* beard.png */; };
 		7B434462186797D90080F65E /* beard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B434461186797D90080F65E /* beard@2x.png */; };
+		7BA4ADB21868CECF00DC96F3 /* chest.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BA4ADB01868CECF00DC96F3 /* chest.png */; };
+		7BA4ADB31868CECF00DC96F3 /* chest@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BA4ADB11868CECF00DC96F3 /* chest@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		7B43445D18677F6C0080F65E /* UIImage+UIImageFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UIImageFunctions.m"; sourceTree = "<group>"; };
 		7B43445F186797670080F65E /* beard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beard.png; sourceTree = "<group>"; };
 		7B434461186797D90080F65E /* beard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beard@2x.png"; sourceTree = "<group>"; };
+		7BA4ADB01868CECF00DC96F3 /* chest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chest.png; sourceTree = "<group>"; };
+		7BA4ADB11868CECF00DC96F3 /* chest@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chest@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,8 @@
 				7B43445D18677F6C0080F65E /* UIImage+UIImageFunctions.m */,
 				7B43445F186797670080F65E /* beard.png */,
 				7B434461186797D90080F65E /* beard@2x.png */,
+				7BA4ADB01868CECF00DC96F3 /* chest.png */,
+				7BA4ADB11868CECF00DC96F3 /* chest@2x.png */,
 			);
 			path = InstaTits;
 			sourceTree = "<group>";
@@ -251,11 +257,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BA4ADB31868CECF00DC96F3 /* chest@2x.png in Resources */,
 				7B43445B186765850080F65E /* ITSB.storyboard in Resources */,
 				7B434462186797D90080F65E /* beard@2x.png in Resources */,
 				7B43443A186752AB0080F65E /* Images.xcassets in Resources */,
 				7B43442C186752AB0080F65E /* InfoPlist.strings in Resources */,
 				7B434435186752AB0080F65E /* Main.storyboard in Resources */,
+				7BA4ADB21868CECF00DC96F3 /* chest.png in Resources */,
 				7B434460186797670080F65E /* beard.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,6 +495,7 @@
 				7B434452186752AB0080F65E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B434453186752AB0080F65E /* Build configuration list for PBXNativeTarget "InstaTitsTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +504,7 @@
 				7B434455186752AB0080F65E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

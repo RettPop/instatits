@@ -8,9 +8,18 @@
 
 #import "UIImage+UIImageFunctions.h"
 
+#ifndef DLog
+#ifdef DEBUG
+#define DLog(_format_, ...) NSLog([NSString stringWithFormat:@"%s: %@", __PRETTY_FUNCTION__, (_format_)], ## __VA_ARGS__)
+#else
+#define DLog(_format_, ...)
+#endif
+#endif
+
 @implementation UIImage (UIImageFunctions)
 - (UIImage*)scaleToSize:(CGSize)size
 {
+    DLog(@"Start");
     UIGraphicsBeginImageContext(size);
 
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -24,6 +33,7 @@
     UIGraphicsEndImageContext();
 
     return scaledImage;
+    DLog(@"Start");
 }
 
 @end
