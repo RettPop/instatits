@@ -13,14 +13,20 @@
 
 #define LOGRect(x) NSLog(@"Logging Rect %s: %@", (#x), NSStringFromCGRect(x))
 
-#ifndef DLog
 #ifdef DEBUG
-#define DLog(_format_, ...) NSLog([NSString stringWithFormat:@"%s: %@", __PRETTY_FUNCTION__, (_format_)], ## __VA_ARGS__)
+#define DLog( s, ... ) NSLog( @"%@%s:(%d)> %@", [[self class] description], __PRETTY_FUNCTION__ , __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#define DAssert(A, B, ...) NSAssert(A, B, ##__VA_ARGS__);
+#define DLogv( var ) NSLog( @"%@%s:(%d)> "# var "=%@", [[self class] description], __PRETTY_FUNCTION__ , __LINE__, var ] )
+#elif DEBUG_PROD
+#define DLog( s, ... ) NSLog( @"%@%s:(%d)> %@", [[self class] description], __PRETTY_FUNCTION__ , __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#define DLogv( var ) NSLog( @"%@%s:(%d)> "# var "=%@", [[self class] description], __PRETTY_FUNCTION__ , __LINE__, var ] )
+#define DAssert(A, B, ...) NSAssert(A, B, ##__VA_ARGS__);
 #else
-#define DLog(_format_, ...)
+#define DLog( s, ... )
+#define DAssert(...)
+#define DLogv(...)
 #endif
-#endif
-#define LOGLINE NSLog([NSString stringWithFormat:@"%s (%d)", __PRETTY_FUNCTION__, __LINE__])
+#define LOGLINE DLog(@"")
 
 // return true if the device has a retina display, false otherwise
 #define IS_RETINA_DISPLAY() [[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2.0f
@@ -128,7 +134,7 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
 
 UIImage* rotate(UIImage* src, UIImageOrientation orientation)
 {
-    DLog(@"Start");
+    NSLog(@"Start");
     UIGraphicsBeginImageContext(src.size);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -151,7 +157,7 @@ UIImage* rotate(UIImage* src, UIImageOrientation orientation)
     
     [src drawAtPoint:CGPointMake(0, 0)];
     
-    DLog(@"Finish");
+    NSLog(@"Finish");
     return UIGraphicsGetImageFromCurrentImageContext();
 }
 

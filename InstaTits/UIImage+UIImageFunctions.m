@@ -8,12 +8,18 @@
 
 #import "UIImage+UIImageFunctions.h"
 
-#ifndef DLog
 #ifdef DEBUG
-#define DLog(_format_, ...) NSLog([NSString stringWithFormat:@"%s: %@", __PRETTY_FUNCTION__, (_format_)], ## __VA_ARGS__)
+#define DLog( s, ... ) NSLog( @"%@%s:(%d)> %@", [[self class] description], __PRETTY_FUNCTION__ , __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#define DAssert(A, B, ...) NSAssert(A, B, ##__VA_ARGS__);
+#define DLogv( var ) NSLog( @"%@%s:(%d)> "# var "=%@", [[self class] description], __PRETTY_FUNCTION__ , __LINE__, var ] )
+#elif DEBUG_PROD
+#define DLog( s, ... ) NSLog( @"%@%s:(%d)> %@", [[self class] description], __PRETTY_FUNCTION__ , __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#define DLogv( var ) NSLog( @"%@%s:(%d)> "# var "=%@", [[self class] description], __PRETTY_FUNCTION__ , __LINE__, var ] )
+#define DAssert(A, B, ...) NSAssert(A, B, ##__VA_ARGS__);
 #else
-#define DLog(_format_, ...)
-#endif
+#define DLog( s, ... )
+#define DAssert(...)
+#define DLogv(...)
 #endif
 
 @implementation UIImage (UIImageFunctions)
